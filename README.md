@@ -10,7 +10,32 @@
 *** github_username, repo, twitter_handle, email
 -->
 
+<!--
+  MODEL RELATIONS
 
+  USER
+    has_many budgets
+    has_many earnings through: budgets
+    has_many bills through: budgets
+    has_many expenses through: budgets
+
+  BUDGETS
+    belongs_to user
+    has_many earnings
+    has_many bills
+    has_many expenses
+
+  EARNINGS
+    belongs_to budget
+
+  EXPENSES
+    belongs_to budget
+
+  BILLS 
+    belongs_to budget
+
+
+-->
 
 
 
@@ -74,7 +99,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About Moniez-Backend
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
@@ -85,7 +110,11 @@ Here's a blank template to get started:
 
 ### Built With
 
-* []()
+* [Ruby on Rails](https://rubyonrails.org/)
+* [PostgreSQL](https://rubygems.org/gems/pg/versions/0.18.4)
+* [Devise](https://github.com/heartcombo/devise)
+* [Devise-JWT](https://github.com/waiting-for-dev/devise-jwt)
+* [Fast JSON-API](https://github.com/Netflix/fast_jsonapi)
 * []()
 * []()
 
