@@ -2,7 +2,6 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: [:update, :destroy]
 
   def create
-    binding.pry
     user = User.new(user_params)
     if user.valid?
       user.save
@@ -13,7 +12,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     if @user&.valid_password?(user_params[:password])
       @user.update(user_params)
       render json: @user.as_json(only: [:id, :username, :email]), status: :accepted
