@@ -19,8 +19,10 @@ gem 'puma', '~> 4.1'
 # add devise to authentication
 gem 'devise'
 
-# add devise-jwt for authenticating will I
-gem 'devise-jwt', '~> 0.5.9'
+# add devise-jwt for authenticating
+# gem 'devise-jwt', '~> 0.5.9'
+# gem for handling auth tokens for users
+gem 'simple_token_authentication', '~> 1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
