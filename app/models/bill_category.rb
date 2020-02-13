@@ -1,0 +1,2 @@
+class BillCategory < ApplicationRecord
+end
