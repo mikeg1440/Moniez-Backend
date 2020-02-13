@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_031834) do
   end
 
   create_table "earnings", force: :cascade do |t|
-    t.bigint "budgets_id", null: false
+    t.bigint "budget_id", null: false
     t.bigint "earning_category_id", null: false
     t.float "amount"
-    t.index ["budgets_id"], name: "index_earnings_on_budgets_id"
+    t.index ["budget_id"], name: "index_earnings_on_budget_id"
     t.index ["earning_category_id"], name: "index_earnings_on_earning_category_id"
   end
 
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_031834) do
 
   add_foreign_key "bills", "bill_categories"
   add_foreign_key "bills", "budgets"
-  add_foreign_key "earnings", "budgets", column: "budgets_id"
+  add_foreign_key "earnings", "budgets"
   add_foreign_key "earnings", "earning_categories"
   add_foreign_key "expenses", "budgets"
   add_foreign_key "expenses", "expense_categories"
