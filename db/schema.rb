@@ -10,16 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_030536) do
+ActiveRecord::Schema.define(version: 2020_02_13_031834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "budget_tables", force: :cascade do |t|
+  create_table "bill_categories", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "bills", force: :cascade do |t|
+    t.bigint "budget_id", null: false
+    t.bigint "bill_category_id", null: false
+    t.float "amount"
+    t.index ["bill_category_id"], name: "index_bills_on_bill_category_id"
+    t.index ["budget_id"], name: "index_bills_on_budget_id"
+  end
+
+  create_table "budgets", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
     t.text "description"
     t.integer "total"
+  end
+
+  create_table "earning_categories", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "earnings", force: :cascade do |t|
+    t.bigint "budgets_id", null: false
+    t.bigint "earning_category_id", null: false
+    t.float "amount"
+    t.index ["budgets_id"], name: "index_earnings_on_budgets_id"
+    t.index ["earning_category_id"], name: "index_earnings_on_earning_category_id"
+  end
+
+  create_table "expense_categories", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.bigint "budget_id", null: false
+    t.bigint "expense_category_id", null: false
+    t.float "amount"
+    t.index ["budget_id"], name: "index_expenses_on_budget_id"
+    t.index ["expense_category_id"], name: "index_expenses_on_expense_category_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -37,4 +73,10 @@ ActiveRecord::Schema.define(version: 2020_02_13_030536) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bills", "bill_categories"
+  add_foreign_key "bills", "budgets"
+  add_foreign_key "earnings", "budgets", column: "budgets_id"
+  add_foreign_key "earnings", "earning_categories"
+  add_foreign_key "expenses", "budgets"
+  add_foreign_key "expenses", "expense_categories"
 end
