@@ -48,3 +48,11 @@ Add tokens field to users table with migration
   - `rails db:migrate`
 
 Add auth_token to returned object in sessions (must save first?)
+
+----------------------------------------------------------------
+
+Created a task to populate DB with default categories
+`rake db:populate_categories`
+
+Then you can run seed file
+`rake db:seed`
