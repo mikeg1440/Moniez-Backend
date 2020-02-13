@@ -1,22 +1,18 @@
-class Api::V1::Users::SessionsController < ApplicationController
+class Api::V1::SessionsController < ApplicationController
 
   def create
-    user = User.find_by(email: params[:email])
-
-    if user & user.valid_password?(params[:password])
-      render json: user.as_json(only: [:id, :email, :username])
+    user = User.find_by(email: session_params[:email])
+    if user&.valid_password?(session_params[:password])
+      user.save
+      render json: user.as_json(only: [:id, :email, :username, :authentication_token])
     else
       head(:unauthorized)
     end
   end
 
-  def destroy
-
-  end
-
   private
 
-  def sessions_params
+  def session_params
     params.require(:user).permit([:username, :email, :password])
   end
 end
