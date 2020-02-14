@@ -20,5 +20,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-
 /config/credentials/development.key
+
+# Ignore the encrypted credentials file so that it doesn't mess anybody who clones the repo up
+/config/credentials*
+/config/credentials/*
