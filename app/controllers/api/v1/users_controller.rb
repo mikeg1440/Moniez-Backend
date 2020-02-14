@@ -5,7 +5,7 @@ class Api::V1::UsersController < ApplicationController
     user = User.new(user_params)
     if user.valid?
       user.save
-      render json: user.as_json(only: [:id, :email, :username, :authentication_token]), status: :created
+      render json: user, status: :created
     else
       render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end
@@ -14,12 +14,12 @@ class Api::V1::UsersController < ApplicationController
   def update
     if @user&.valid_password?(user_params[:password])
       @user.update(user_params)
-      render json: @user.as_json(only: [:id, :username, :email]), status: :accepted
+      render json: @user, status: :accepted
     else
       if @user&.errors
         render json: {errors: ["Incorrect Password"]}, status: :unauthorized
       else
-        head(:unauthorized)
+        head(:unprocessable_entity)
       end
     end
   end
@@ -28,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
     if @user&.destroy
       render json: @user.as_json(only: [:username, :email]), status: :accepted
     else
-      head(:unauthorized)
+      head(:unprocessable_entity)
     end
   end
 
