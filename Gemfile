@@ -19,6 +19,9 @@ gem 'puma', '~> 4.1'
 # add devise to authentication
 gem 'devise'
 
+# serializers so we can specify what data is returned and clean up controllers
+gem 'active_model_serializers'
+
 # add devise-jwt for authenticating
 # gem 'devise-jwt', '~> 0.5.9'
 # gem for handling auth tokens for users
