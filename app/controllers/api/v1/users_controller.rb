@@ -5,9 +5,9 @@ class Api::V1::UsersController < ApplicationController
     user = User.new(user_params)
     if user.valid?
       user.save
-      render json: user.as_json(only: [:id, :email, :username]), status: :created
+      render json: user.as_json(only: [:id, :email, :username, :authentication_token]), status: :created
     else
-      render json: {errors: user.errors.full_messages}, status: :unauthorized
+      render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
