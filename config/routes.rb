@@ -16,6 +16,9 @@ Rails.application.routes.draw do
       get '/user/delete', to: '/api/v1/users#destroy_user', as: 'delete_user'
 
       resources :budgets, only: [:create, :update, :destroy]
+      resources :earnings, only: [:create, :update, :destroy]
+      resources :bills, only: [:create, :update, :destroy]
+      resources :expenses, only: [:create, :update, :destroy]
     end
   end
 
