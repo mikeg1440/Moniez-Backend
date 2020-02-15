@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_13_031834) do
+ActiveRecord::Schema.define(version: 2020_02_15_165120) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_13_031834) do
     t.integer "user_id"
     t.string "title"
     t.text "description"
-    t.integer "total"
+    t.integer "total", default: 0
   end
 
   create_table "earning_categories", force: :cascade do |t|
