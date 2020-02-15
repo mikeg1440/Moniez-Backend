@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       put '/user', to: '/api/v1/users#update_user', as: 'update_user'
       get '/user/delete', to: '/api/v1/users#destroy_user', as: 'delete_user'
 
+      resources :budgets, only: [:create, :update, :destroy]
     end
   end
 
