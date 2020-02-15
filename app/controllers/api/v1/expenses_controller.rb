@@ -1,7 +1,7 @@
 class Api::V1::ExpensesController < ApplicationController
 
   def index
-
+    render json: @user.expenses
   end
 
   def create

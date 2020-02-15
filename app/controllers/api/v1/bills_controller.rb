@@ -1,7 +1,7 @@
 class Api::V1::BillsController < ApplicationController
 
   def index
-
+    render json: @user.bills
   end
 
   def create

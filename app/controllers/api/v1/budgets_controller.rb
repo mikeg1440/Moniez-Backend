@@ -1,7 +1,7 @@
 class Api::V1::BudgetsController < ApplicationController
 
   def index
-
+    render json: @user.budgets
   end
 
   def create
