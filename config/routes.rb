@@ -19,6 +19,13 @@ Rails.application.routes.draw do
       resources :earnings, only: [:index, :create, :update, :destroy]
       resources :bills, only: [:index, :create, :update, :destroy]
       resources :expenses, only: [:index, :create, :update, :destroy]
+
+      namespace :categories do
+        resources :bill_categories, only: [:index, :create, :destroy]
+        resources :earning_categories, only: [:index, :create, :destroy]
+        resources :expense_categories, only: [:index, :create, :destroy]
+
+      end
     end
   end
 
