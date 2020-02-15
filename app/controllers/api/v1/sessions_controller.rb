@@ -11,6 +11,14 @@ class Api::V1::SessionsController < ApplicationController
     end
   end
 
+  def is_authed
+    if @user
+      render json: @user, status: :accepted
+    else
+      render json: {errors: "User not authorized, please login"}, status: :unauthorized
+    end
+  end
+
   def logout
     user = User.find_by(authentication_token: request.headers[:bearer])
     if user
