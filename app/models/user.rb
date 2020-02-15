@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :budgets
+  has_many :bills, through: :budgets
+  has_many :earnings, through: :budgets
+  has_many :expenses, through: :budgets
 
   acts_as_token_authenticatable
   has_secure_password
