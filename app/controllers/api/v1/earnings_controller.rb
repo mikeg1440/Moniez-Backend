@@ -1,4 +1,9 @@
 class Api::V1::EarningsController < ApplicationController
+
+  def index
+
+  end
+
   def create
   end
 
