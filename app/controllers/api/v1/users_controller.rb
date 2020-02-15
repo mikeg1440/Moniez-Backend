@@ -24,7 +24,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def destroy
+  def destroy_user
     if @user&.destroy
       render json: @user.as_json(only: [:username, :email]), status: :accepted
     else
