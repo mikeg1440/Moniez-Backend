@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:update, :destroy]
+  # before_action :set_user, only: [:update, :destroy]
+  skip_before_action :authenticate_user, only: [:register_user]
 
   def register_user
     user = User.new(user_params)
@@ -34,13 +35,13 @@ class Api::V1::UsersController < ApplicationController
 
   private
 
-  def set_user
-    if params[:id]
-      @user = User.find_by(id: params[:id])
-    else
-      @user = User.find_by(email: user_params[:email])
-    end
-  end
+  # def set_user
+  #   if params[:id]
+  #     @user = User.find_by(id: params[:id])
+  #   else
+  #     @user = User.find_by(email: user_params[:email])
+  #   end
+  # end
 
   def user_params
     params.require(:user).permit([:username, :email, :password, :password_confirmation])
