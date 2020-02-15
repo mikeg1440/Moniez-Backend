@@ -15,10 +15,10 @@ Rails.application.routes.draw do
       put '/user', to: '/api/v1/users#update_user', as: 'update_user'
       get '/user/delete', to: '/api/v1/users#destroy_user', as: 'delete_user'
 
-      resources :budgets, only: [:create, :update, :destroy]
-      resources :earnings, only: [:create, :update, :destroy]
-      resources :bills, only: [:create, :update, :destroy]
-      resources :expenses, only: [:create, :update, :destroy]
+      resources :budgets, only: [:index, :create, :update, :destroy]
+      resources :earnings, only: [:index, :create, :update, :destroy]
+      resources :bills, only: [:index, :create, :update, :destroy]
+      resources :expenses, only: [:index, :create, :update, :destroy]
     end
   end
 
