@@ -6,7 +6,6 @@ class ApplicationController < ActionController::API
       @user = User.find_by(authentication_token: auth_header)
       @user
     else
-      # head(:unauthorized)
       render status: :unauthorized
     end
   end
