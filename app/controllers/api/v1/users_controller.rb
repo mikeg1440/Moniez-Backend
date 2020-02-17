@@ -6,7 +6,6 @@ class Api::V1::UsersController < ApplicationController
     user = User.new(user_params)
     if user.valid?
       user.save
-      response.headers['bearer'] = user.authentication_token
       render json: user, status: :created
     else
       render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
