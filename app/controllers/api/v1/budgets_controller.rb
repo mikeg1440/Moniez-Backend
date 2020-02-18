@@ -14,6 +14,15 @@ class Api::V1::BudgetsController < ApplicationController
     end
   end
 
+  def show
+    budget = Budget.find_by(id: params[:id])
+    if budget
+      render json: budget, status: :ok
+    else
+      render json: {errors: 'Failed to get budget'}, status: :unprocessable_entity
+    end
+  end
+
   def update
   end
 
