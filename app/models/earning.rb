@@ -1,7 +1,7 @@
 class Earning < ApplicationRecord
   belongs_to :budget
-  has_one :earning_category
+  belongs_to :earning_category
 
   validates :amount, presence: true
-  
+
 end
