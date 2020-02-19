@@ -1,5 +1,5 @@
 class EarningSerializer < ActiveModel::Serializer
-  attributes :id, :amount, :earning_category
+  attributes :id, :budget_id, :amount, :earning_category
   # attributes :id, :amount, :category_title
 
 
