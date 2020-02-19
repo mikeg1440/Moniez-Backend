@@ -1,7 +1,9 @@
 class Api::V1::BudgetsController < ApplicationController
 
   def index
-    render json: @user.budgets
+    budgets = @user.budgets
+    budgets.each {|budget| budget.update_total}
+    render json: budgets
   end
 
   def create
@@ -27,7 +29,7 @@ class Api::V1::BudgetsController < ApplicationController
   end
 
   def destroy
-    budget = Budget.find_by(id: params[:id])
+    budget = @user.budgets.find_by(id: params[:id])
     if budget&.destroy
       render json: budget, status: :ok
     else
