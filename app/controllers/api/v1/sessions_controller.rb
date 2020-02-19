@@ -23,7 +23,7 @@ class Api::V1::SessionsController < ApplicationController
     user = User.find_by(authentication_token: request.headers[:bearer])
     if user
       user.authentication_token.clear
-      response.delete_token(:bearer)
+      user.save
       head(:ok)
     else
       head(:not_acceptable)
