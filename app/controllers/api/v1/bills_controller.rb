@@ -8,7 +8,7 @@ class Api::V1::BillsController < ApplicationController
   def create
     budget = Budget.find_by(id: bill_params[:budget_id])
     new_bill = budget.bills.build(bill_params)
-    
+
     if new_bill.valid?
       budget.save
       render json: new_bill, status: :created
