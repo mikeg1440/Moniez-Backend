@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
       # resources :sessions, only: [:create, :destroy]
       post '/login', to: '/api/v1/sessions#login', as: 'user_login'
-      get '/logout', to: '/api/v1/sessions#logout', as: 'user_logout'
+      delete '/logout', to: '/api/v1/sessions#logout', as: 'user_logout'
       get '/is-authed', to: '/api/v1/sessions#is_authed', as: 'is_logged_in'
 
       # resources :users, only: [:create, :update, :destroy]
