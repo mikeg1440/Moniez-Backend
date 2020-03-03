@@ -2,9 +2,9 @@ class Budget < ApplicationRecord
   after_update :update_total
 
   belongs_to :user
-  has_many :earnings
-  has_many :expenses
-  has_many :bills
+  has_many :earnings, dependent: :delete_all
+  has_many :expenses, dependent: :delete_all
+  has_many :bills, dependent: :delete_all
 
 
   validates :title, presence: true
