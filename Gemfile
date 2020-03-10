@@ -42,6 +42,7 @@ group :development, :test do
   gem "rspec-rails", "~> 3.9"
   gem 'better_errors'
   gem "faker", "~> 2.10"
+  gem "database_cleaner", "~> 1.8"
 end
 
 group :development do
