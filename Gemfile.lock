@@ -221,7 +221,7 @@ DEPENDENCIES
   faker (~> 2.10)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
-  pry-moves
+  pry-moves (~> 0.1.12)
   puma (~> 4.3)
   rack-cors
   rails (~> 6.0.2, >= 6.0.2.1)

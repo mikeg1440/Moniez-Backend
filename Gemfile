@@ -43,11 +43,11 @@ group :development, :test do
   gem 'better_errors'
   gem "faker", "~> 2.10"
   gem "database_cleaner", "~> 1.8"
+  gem "pry-moves", "~> 0.1.12"
 end
 
 group :development do
   gem 'binding_of_caller'
-  gem 'pry-moves'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
