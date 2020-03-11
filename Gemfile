@@ -44,6 +44,7 @@ group :development, :test do
   gem "faker", "~> 2.10"
   gem "database_cleaner", "~> 1.8"
   gem "pry-moves", "~> 0.1.12"
+  gem "shoulda-matchers", "~> 4.3"
 end
 
 group :development do
