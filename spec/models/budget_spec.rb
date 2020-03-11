@@ -30,5 +30,14 @@ RSpec.describe Budget, type: :model do
 
   end
 
+  context 'it has associations to earnings, expenses, and bills models' do
+
+    it {should have_many(:earnings)}
+
+    it {should have_many(:expenses)}
+
+    it {should have_many(:bills)}
+
+  end
 
 end
