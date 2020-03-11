@@ -75,4 +75,16 @@ RSpec.describe Budget, type: :model do
     it 'removing expense'
 
   end
+
+  context 'deletes all associated bills, expenses, and bills when destroyed' do
+
+    it 'earnings deleted'
+
+    it 'bills deleted'
+
+    it 'expenses deleted'
+
+  end
+
+
 end
