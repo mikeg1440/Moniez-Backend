@@ -4,7 +4,7 @@ class CreateBudgetTable < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.string :title
       t.text :description
-      t.integer :total
+      t.float :total, precision: 2
     end
   end
 end
