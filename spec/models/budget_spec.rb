@@ -90,13 +90,24 @@ RSpec.describe Budget, type: :model do
 
   context 'deletes all associated bills, expenses, and bills when destroyed' do
 
-    it 'earnings deleted'
+    budget = user.budgets.first
+    it 'earnings deleted' do
+      expect { budget.destroy }.to change(Earning, :count).by(-budget.earnings.count)
+    end
 
-    it 'bills deleted'
+    it 'bills deleted' do
+      expect { budget.destroy }.to change(Bill, :count).by(-budget.bills.count)
+    end
 
-    it 'expenses deleted'
+    it 'expenses deleted' do
+      expect { budget.destroy }.to change(Expense, :count).by(-budget.expenses.count)
+    end
+
+
+    if Rails.env.test?
+      user.destroy
+    end
 
   end
-
 
 end
