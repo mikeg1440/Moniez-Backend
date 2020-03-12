@@ -58,13 +58,33 @@ RSpec.describe Budget, type: :model do
       expect(budget.total* 1.0).to eq(original_total - earning.amount)
     end
 
-    it 'after adding expense'
+    it 'after adding expense' do
+      original_total = budget.total
+      expense = budget.expenses.build(expense_category_id: 1, amount: rand(200))
+      budget.save
+      expect(budget.total * 1.0).to equal(original_total - expense.amount)
+    end
 
-    it 'after removing expense'
+    it 'after removing expense' do
+      original_total = budget.total
+      expense = budget.expenses.last
+      expense.destroy
+      expect(budget.total * 1.0).to equal(original_total + expense.amount)
+    end
 
-    it 'after adding bill'
+    it 'after adding bill' do
+      original_total = budget.total
+      bill = budget.bills.build(bill_category_id: 1, amount: rand(200))
+      budget.save
+      expect(budget.total * 1.0).to equal(original_total - bill.amount)
+    end
 
-    it 'removing expense'
+    it 'removing expense' do
+      original_total = budget.total
+      bill = budget.bills.last
+      bill.destroy
+      expect(budget.total * 1.0).to equal(original_total + bill.amount)
+    end
 
   end
 
