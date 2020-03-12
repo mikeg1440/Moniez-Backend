@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-Rails.application.load_seed
-
 RSpec.describe Budget, type: :model do
 
   user = User.first
@@ -44,13 +42,7 @@ RSpec.describe Budget, type: :model do
 
     budget = user.budgets.first
 
-    # expense = budget.expenses.build(expense_category_id: 7, amount: rand(500))
-    # bill = budget.bills.build(bill_category_id: 7, amount: rand(500))
-
     budget.update_total
-    # original_total = budget.total
-    # earning = budget.earnings.build(earning_category_id: 1, amount: rand(1500))
-    # budget.save
 
     it 'after adding earning' do
       original_total = budget.total
